@@ -1,0 +1,90 @@
+.login-page {
+    background: url("../images/blog-bg.png");
+
+    .account-login {
+        display: block;
+        padding: 15px 0px 45px;
+
+        .block-title {
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .panel {
+        border: none;
+        background: transparent;
+        @include box-shadow(none);
+
+        .row {
+            width: 100%;
+            margin: 0px;
+            display: table;
+
+            div[class^="col-"] {
+                display: table-cell;
+                vertical-align: middle;
+                float: none;
+                padding: 0;
+            }
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+
+            .control-label {
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 10px;
+                text-align: left;
+                display: block;
+            }
+
+            .form-control {
+                background-color: $white;
+            }
+        }
+
+        .panel-body {
+            padding-left: 65px;
+            padding-right: 65px;
+        }
+
+        .btn-link {
+            line-height: 45px;
+        }
+
+        .btn {
+            min-width: 200px;
+        }
+    }
+}
+
+.block-reset-password {
+    .panel {
+        max-width: 50%;
+        padding: 20px;
+        margin: 25px auto 10%;
+        border: 1px solid $input-border;
+        background: $white;
+
+        h2 {
+            color: $white;
+            text-align: center;
+            background: $orange;
+            padding: 8px 10px;
+            margin-bottom: 25px;
+        }
+
+        .panel-body {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+}
+
+.account-page {
+    padding-bottom: 100px;
+}

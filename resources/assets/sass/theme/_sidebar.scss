@@ -1,0 +1,27 @@
+.left-aside {
+    padding-left: 0px;
+
+    .employer-sidebar {
+        margin-right: 30px;
+    }
+
+    .nav-pills {
+        > li {
+            > a {
+                background-color: $gray-lighter;
+
+                &:hover {
+                    color: $white;
+                    background-color: $orange;
+                }
+            }
+
+            &.active {
+                > a {
+                    color: $white;
+                    background-color: $orange;
+                }
+            }
+        }
+    }
+}

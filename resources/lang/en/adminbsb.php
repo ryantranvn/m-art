@@ -1,0 +1,170 @@
+<?php
+
+return [
+// frontend
+    'order_fail' => 'Can not order',
+    'order_success' => 'Order successful',
+    'empty_cart' => 'Empty Cart',
+    'not_exist_in_cart' => 'Product does not exist in cart.',
+    'subscribe_email_exist' => 'This email was registered subscribe.',
+    'send_contact_success' => 'Thanks for your contact ! We will reply to you as soon as.',
+    'ask_change_password' => 'Do you want to change password ?',
+    'old_password' => 'Old Password',
+    'new_password' => 'New Password',
+    'new_password_confirmation' => 'New Password Confirmation',
+    'wrong_old_password' => 'Wrong Old Password',
+    'order_code' => 'Order Code',
+
+// pass to js
+    'js' => [
+        'swal_delete_title' => 'Delete data',
+        'swal_delete_text' => 'Are you sure ?',
+        'swal_delete_btn_confirm' => 'Delete',
+        'swal_error_title' => 'Error',
+        'swal_error_content' => 'Something is wrong.',
+
+        'over_max_size' => "Over max size ",
+        'order_detail' => 'Order Detail',
+        'product_name' => 'Product',
+        'product_price' => 'Price',
+        'product_quantity' => 'Quantity',
+        'product_total' => 'Total',
+        'note' => 'Note',
+        'btn_save_order_note' => 'Save',
+        'btn_submit' => 'Submit',
+        'btn_cancel_order' => 'Cancel Order',
+        'require_input_content' => 'Please input content',
+        'can_not_find_data' => 'Can not get data',
+        'require_max_20' => 'Number of items is less than 20',
+        'ask_reason_cancel' => 'Please input reason you want to cancel this order.',
+    ],
+
+// field name
+    'show' => 'show',
+    'hide' => 'hide',
+    'none' => 'None',
+    'cancel' => 'Cancel',
+    'inactive' => 'Inactive',
+    'active' => 'Active',
+    'action' => 'Action',
+
+    'customer_name' => 'Customer',
+    'order_subtotal' => 'Sub Total',
+    'tax' => 'Tax',
+    'delivery' => 'Delivery Fee',
+    'total' => 'Total',
+    'new' => 'New',
+    'pending' => 'Pending',
+    'on_delivery' => 'On Delivery',
+    'done' => 'Done',
+
+    'contact_name' => 'Contact Name',
+    'phone' => 'Phone',
+    'replied' => 'Replied',
+
+    'product_recommend' => 'Recommend Product',
+    'recommend' => 'Recommend',
+    'normal' => 'Normal',
+
+    'user_status' => 'Status',
+    'supplier_status' => 'Status',
+    'category_status' => 'Status',
+    'product_status' => 'Status',
+    'order_status' => 'Status',
+    'subscribe_status' => 'Status',
+    'contact_status' => 'Status',
+
+    'supplier_name' => 'Supplier Name',
+    'picture' => 'Picture',
+    'supplier_desc' => 'Description',
+    'supplier_introduction' => 'Introduction',
+
+    'province' => 'Province',
+    'district' => 'District',
+    'user_name' => 'Restaurant Name',
+    'user_address' => 'Address',
+    'restaurant_name' => 'Restaurant Name',
+    'email' => 'Email',
+    'password' => 'Password',
+    'password_confirmation' => 'Password Confirmation',
+    'generate_password' => 'Generate Password',
+    'password_auto' => 'Password Auto',
+
+    'location' => 'Location',
+    'address' => 'Address',
+    'choose_province' => 'Choose Province',
+    'choose_district' => 'Choose District',
+    'can_not_find_districts' => 'Can not get districts',
+    'can_not_find_data' => 'Can not get data',
+
+    'choose_client' => 'Choose client',
+    'choose_supplier' => 'Choose supplier',
+    'choose_category' => 'Choose category',
+
+    'product_name' => 'Product Name',
+    'product_small_desc' => 'Small Description',
+    'product_desc' => 'Description',
+    'product_price' => 'Price',
+    'product_order' => 'Order',
+    'can_select_multiple_files' => 'Hold "Ctrl" or "Command" to select multiple files' ,
+
+    'category_name' => 'Category Name',
+    'category_picture' => 'Picture',
+    'category_slug' => 'Slug',
+    'category_desc' => 'Description',
+    'category_order' => 'Order',
+    'choose_parent_category' => 'Choose Parent Category',
+
+    'created_at' => 'Created at',
+    'last_updated_at' => 'Last updated at',
+    'last_updated_by' => 'Last updated by',
+// buttons
+    'btn_create' => 'Create',
+    'btn_submit' => 'Submit',
+    'btn_save' => 'Save',
+    'btn_cancel' => 'Cancel',
+    'btn_view' => 'View',
+    'btn_edit' => 'Edit',
+    'btn_delete' => 'Delete',
+    'btn_back' => 'Back',
+    'btn_close' => 'Close',
+    'btn_search' => 'Search',
+    'btn_reset' => 'Reset',
+    'btn_show_all' => 'Show All',
+    'btn_change_password' => 'Change Password',
+
+// menu
+    'dashboard' => 'Dashboard',
+    'user' => 'User',
+    'supplier' => 'Supplier',
+    'category' => 'Category',
+    'product' => 'Product',
+    'order' => 'Order',
+    'subscribe' => 'Subscribe',
+    'contact' => 'Contact',
+    'setting' => 'Setting',
+
+    'list_title' => 'List',
+    'create_title' => 'Create New',
+    'show_title' => 'Show Detail',
+    'edit_title' => 'Edit Detail',
+    'search_title' => 'Search',
+
+// notice - reply
+    'no_data' => 'No data',
+    'not_found_data' => 'Not found data',
+    'create_success' => 'Creating data successful',
+    'create_fail' => 'Creating data failed',
+    'edit_success' => 'Updating data successful',
+    'edit_fail' => 'Updating data failed',
+    'delete_fail' => 'Delete data failed',
+    'delete_success' => 'Delete data successful',
+
+// modal
+    'modal_ask_change_status' => 'Do you want to change status of item ?',
+    'modal_ask_change_password' => 'Do you want to change password of user ?',
+// paging
+    'paging_total' => 'Total',
+    'paging_entries' => 'entries'
+
+];

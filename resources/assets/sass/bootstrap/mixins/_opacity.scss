@@ -1,0 +1,9 @@
+// Opacity
+
+@mixin opacity($opacity) {
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=$opacity-ie);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}

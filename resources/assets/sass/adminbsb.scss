@@ -1,0 +1,331 @@
+// Color
+$colorRed : #F44336;
+$colorBlue : #1D8BF1;
+$colorLink : #00BCD4;
+$colorText : #555555;
+$colorTheme : #5C7D8A;
+$maxThumbnail : 150px;
+$maxThumbnailInTable : 80px;
+
+body {
+    // modify theme
+    .page-loader-wrapper {
+        background: rgba(238, 238, 238, 0.3);
+    }
+    .input-group.input-group-sm .form-control {
+        font-size: 14px;
+    }
+    .sidebar#leftsidebar {
+        width: 250px;
+    }
+    section.content {
+        margin-left: 265px;
+        margin-top: 80px;
+    }
+
+    i.showHideNav {
+        width: 30px;
+        height: 60px;
+        display: block;
+        position: absolute;
+        z-index: 10;
+        top: 0px;
+        background: white;
+        font-size: 30px;
+        line-height: 60px;
+
+        &:hover {
+            cursor: pointer;
+            color: $colorRed;
+        }
+    }
+    i.navHide {
+        right: 0px;
+        border-bottom-left-radius: 60px;
+        border-top-left-radius: 60px;
+    }
+    i.navShow {
+        left: 0px;
+        top: 70px;
+        border-bottom-right-radius: 60px;
+        border-top-right-radius: 60px;
+    }
+
+    // Common classes
+    .hiddenInput {
+        width: 0px;
+        height: 0px;
+        opacity: 0;
+    }
+    .requireSign {
+        color: $colorRed;
+        padding-left: 10px;
+    }
+    input:read-only {
+        cursor: not-allowed;
+    }
+    input[name="product_price"] {
+        font-size: 18px !important;
+    }
+    .noMarginBottom {
+        margin-bottom: 0px !important;
+    }
+    .upper {
+        text-transform: uppercase;
+    }
+    // thumbnail upload
+    .thumbnailWrap {
+        max-width: $maxThumbnail + 40px;
+        width: $maxThumbnail + 40px;
+        max-height: $maxThumbnail + 40px;
+        height: $maxThumbnail + 40px;
+        float: left;
+        clear: none;
+        position: relative;
+
+        .thumbnailFrame {
+            display: inline-block;
+            padding: 3px;
+            border: solid 2px;
+            max-width: $maxThumbnail + 10px;
+            width: $maxThumbnail + 10px;
+            max-height: $maxThumbnail + 10px;
+            height: $maxThumbnail + 10px;
+            overflow: hidden;
+            //margin-left: 10px;
+            text-align: center;
+            position: relative;
+        }
+        img.thumbnail {
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 0; right: 0;
+            margin: auto;
+            max-width: $maxThumbnail;
+            max-height: $maxThumbnail;
+        }
+        .delThumbnail {
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            background: white;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    img.thumbnailInTable {
+        display: inline-block;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 2px;
+        max-width: $maxThumbnailInTable;
+        max-height: $maxThumbnailInTable;
+    }
+
+    // buttons
+    button.close {
+        opacity: 1;
+    }
+    .btnGeneratePassword {
+        position: relative;
+        top: -4px;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .btnClearAutoPassword {
+        i {
+            font-size: 20px !important;
+        }
+        &:hover {
+            cursor: pointer;
+            i {
+                color: $colorRed !important;
+            }
+        }
+    }
+    // menuIcon
+    .menuIcon {
+        float: left;
+
+        a {
+            font-size: 18px;
+            color: #000;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+    }
+    // textarea
+    textarea {
+        resize: vertical;
+    }
+    // btnSpinner
+    .spinner {
+        .btnSpinner {
+            height: 15px;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            text-align: center;
+            padding: 0px;
+
+            &:hover {
+                color: $colorBlue;
+                cursor: pointer;
+            }
+
+            i.material-icons {
+                margin-top: -3px;
+            }
+        }
+        .btnSpinnerUp {
+            right: 0;
+            top: 0;
+        }
+        .btnSpinnerDown {
+            right: 0;
+            top: 15px;
+        }
+    }
+    // feedback of max length for input
+    .maxlength-feedback {
+        position: absolute;
+        right: 0;
+        top: -20px;
+        color: $colorText;
+        font-size: 13px;
+    }
+    // breadcrumb
+    .breadcrumb {
+        font-size: 16px;
+
+        a {
+            color: $colorText !important;
+
+            &:hover {
+                color: $colorRed !important;
+            }
+
+            .material-icons {
+                font-size: 20px;
+            }
+        }
+
+
+        li {
+            text-transform: capitalize;
+        }
+        li.active {
+            font-weight: bold;
+            color: $colorRed;
+        }
+    }
+    // data table
+    .dataTables_paginate {
+        nav {
+            text-align: right;
+            ul.pagination {
+                margin: 0 !important;
+            }
+        }
+    }
+    table.table {
+        thead {
+            th {
+                text-align: center;
+            }
+            th.sorting {
+                background: url(../images/sort_both.png) no-repeat center right;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            th.sorting.sorting_asc {
+                background: url(../images/sort_asc.png) no-repeat center right;
+            }
+            th.sorting.sorting_desc {
+                background: url(../images/sort_desc.png) no-repeat center right;
+            }
+        }
+        tfoot {
+            th {
+                text-align: center;
+            }
+        }
+        td.editInline {
+            position: relative;
+
+            .iconEditInline {
+                font-size: 12px;
+                background: $colorTheme;
+                color: white;
+                position: absolute;
+                right: 0px; top: 0px;
+                z-index: 10;
+            }
+            input[type="text"] {
+                max-width: 80%;
+                text-align: center;
+            }
+        }
+    }
+    td.details-control {
+        background: url('../images/details_open.png') no-repeat center center;
+        cursor: pointer;
+    }
+    tr.shown td.details-control {
+        background: url('../images/details_close.png') no-repeat center center;
+    }
+    tr.row-extend td {
+        .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+            margin-bottom: 5px !important;
+        }
+        .paymentTitle {
+            //padding-left: 30px;
+            //background: url('../images/details_open.png') no-repeat left center;
+            cursor: pointer;
+        }
+    }
+    .tableBillDetail {
+        thead tr th,
+        tfoot tr th,
+        tbody tr td {
+            font-size: 14px;
+        }
+    }
+    // switch status
+    .switchOnActive {
+        font-weight: bold;
+        color: $colorBlue;
+    }
+    .switchOffActive {
+        font-weight: bold;
+        color: $colorRed;
+    }
+    // collapse box
+    .btnCollapse {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+    // modal
+    .modal {
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .summaryBox {
+        a:hover {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}

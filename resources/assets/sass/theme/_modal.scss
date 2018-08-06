@@ -1,0 +1,72 @@
+.location-list {
+    width: 100%;
+    @include transition(all 0.2s ease);
+
+    .item {
+        width: 100%;
+        display: table;
+        border-bottom: solid 1px #bfbfbf;
+
+        .job-title,
+        .searchModal {
+            color: $gray-base;
+            height: 44px;
+            display: table-cell;
+            vertical-align: middle;
+            padding: 5px 20px 5px 15px;
+            position: relative;
+
+            .resultNum {
+                color: $red;
+                font-size: 12px;
+                text-indent: 5px;
+                display: inline-block;
+            }
+
+            [class^="icon-"] {
+                color: $red;
+                font-size: 12px;
+                position: absolute;
+                top: 16px;
+                right: 10px;
+            }
+
+            &:hover {
+                background: $gray-lighter;
+            }
+        }
+
+        .searchModal {
+            font-weight: 500;
+
+            &:after {
+                content: '';
+                display: none;
+            }
+        }
+
+        .buttons-set {
+            margin: 20px 25px;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.last-title {
+    cursor: pointer;
+    padding-left: 25px;
+    position: relative;
+    display: none;
+
+    &:before {
+        content: '\e910';
+        font-family: $icon-font-name-ico;
+        font-size: 20px;
+        position: absolute;
+        top: -3px;
+        left: 0;
+    }
+}

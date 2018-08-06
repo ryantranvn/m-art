@@ -1,0 +1,765 @@
+//
+// Typography
+// --------------------------------------------------
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: $headings-color;
+    font-family: $font-family-special;
+    font-weight: $headings-font-weight;
+    line-height: $headings-line-height;
+    font-style: italic;
+    margin-bottom: 15px;
+
+    small,
+    .small {
+        color: $headings-small-color;
+        line-height: 1;
+    }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+    small,
+    .small {
+        font-size: 65%;
+    }
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    small,
+    .small {
+        font-size: 75%;
+    }
+}
+
+h1, .h1 {
+    font-size: $font-size-h1;
+}
+
+h2, .h2 {
+    font-size: $font-size-h2;
+}
+
+h3, .h3 {
+    font-size: $font-size-h3;
+}
+
+h4, .h4 {
+    font-size: $font-size-h4;
+}
+
+h5, .h5 {
+    font-size: $font-size-h5;
+}
+
+h6, .h6 {
+    font-size: $font-size-h6;
+}
+
+// Body text
+// -------------------------
+
+p {
+    margin: 0px 0px $line-height-computed;
+}
+
+.lead {
+    margin-bottom: $line-height-computed;
+    font-size: floor(($font-size-base * 1.15));
+    font-weight: 300;
+    line-height: 1.4;
+
+    @media (min-width: $screen-sm-min) {
+        font-size: ($font-size-base * 1.5);
+    }
+}
+
+// Emphasis & misc
+// -------------------------
+
+// Ex: (12px small font / 14px base font) * 100% = about 85%
+small,
+.small {
+    font-size: floor((100% * $font-size-small / $font-size-base));
+}
+
+mark,
+.mark {
+    background-color: $state-warning-bg;
+    padding: .2em;
+}
+
+// Alignment
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+// Transformation
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+// Contextual colors
+.text-muted {
+    color: $text-muted;
+}
+
+@include text-emphasis-variant('.text-primary', $brand-primary);
+
+@include text-emphasis-variant('.text-success', $state-success-text);
+
+@include text-emphasis-variant('.text-info', $state-info-text);
+
+@include text-emphasis-variant('.text-warning', $state-warning-text);
+
+@include text-emphasis-variant('.text-danger', $state-danger-text);
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.bg-primary {
+    // Given the contrast here, this is the only class to have its color inverted
+    // automatically.
+    color: #fff;
+}
+
+@include bg-variant('.bg-primary', $brand-primary);
+
+@include bg-variant('.bg-success', $state-success-bg);
+
+@include bg-variant('.bg-info', $state-info-bg);
+
+@include bg-variant('.bg-warning', $state-warning-bg);
+
+@include bg-variant('.bg-danger', $state-danger-bg);
+
+// Page header
+// -------------------------
+
+.page-header {
+    padding-bottom: (($line-height-computed / 2) - 1);
+    margin: ($line-height-computed * 2) 0 $line-height-computed;
+    border-bottom: 1px solid $page-header-border-color;
+}
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+    margin: 0px;
+    list-style: none;
+}
+
+// List options
+
+// [converter] extracted from `.list-unstyled` for libsass compatibility
+@mixin list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+// [converter] extracted as `@mixin list-unstyled` for libsass compatibility
+.list-unstyled {
+    @include list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+    @include list-unstyled;
+    margin-left: -5px;
+
+    > li {
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+// Description Lists
+dl {
+    margin-top: 0; // Remove browser default
+    margin-bottom: $line-height-computed;
+}
+
+dt,
+dd {
+    line-height: $line-height-base;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 0; // Undo browser default
+}
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+.dl-horizontal {
+    dd {
+        @include clearfix; // Clear the floated `dt` if an empty `dd` is present
+    }
+
+    @media (min-width: $dl-horizontal-breakpoint) {
+        dt {
+            float: left;
+            width: ($dl-horizontal-offset - 20);
+            clear: left;
+            text-align: right;
+            @include text-overflow;
+        }
+        dd {
+            margin-left: $dl-horizontal-offset;
+        }
+    }
+}
+
+// Misc
+// -------------------------
+
+// Abbreviations and acronyms
+abbr[title],
+    // Add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+    cursor: help;
+    border-bottom: 1px dotted $abbr-border-color;
+}
+
+.initialism {
+    font-size: 90%;
+    @extend .text-uppercase;
+}
+
+// Blockquotes
+blockquote {
+    padding: ($line-height-computed / 2) $line-height-computed;
+    margin: 0 0 $line-height-computed;
+    font-size: $blockquote-font-size;
+    border-left: 5px solid $blockquote-border-color;
+
+    p,
+    ul,
+    ol {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Note: Deprecated small and .small as of v3.1.0
+    // Context: https://github.com/twbs/bootstrap/issues/11660
+    footer,
+    small,
+    .small {
+        display: block;
+        font-size: 80%; // back to default font-size
+        line-height: $line-height-base;
+        color: $blockquote-small-color;
+
+        &:before {
+            content: '\2014 \00A0'; // em dash, nbsp
+        }
+    }
+}
+
+// Opposite alignment of blockquote
+//
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+.blockquote-reverse,
+blockquote.pull-right {
+    padding-right: 15px;
+    padding-left: 0;
+    border-right: 5px solid $blockquote-border-color;
+    border-left: 0;
+    text-align: right;
+
+    // Account for citation
+    footer,
+    small,
+    .small {
+        &:before {
+            content: '';
+        }
+        &:after {
+            content: '\00A0 \2014'; // nbsp, em dash
+        }
+    }
+}
+
+.no-display {
+    display: none;
+}
+
+.text-gray-light {
+    color: #999;
+}
+
+// Addresses
+address {
+    margin-bottom: $line-height-computed;
+    font-style: normal;
+    line-height: $line-height-base;
+}
+
+.page-wrapper {
+    width: 100%;
+    height: auto;
+}
+
+.wrapper-content {
+    min-height: 450px;
+    padding-top: 35px;
+    padding-bottom: 25px;
+}
+
+.main {
+    height: 100%;
+    padding: 100px 0px 0px;
+    @include transition(all 0.3s ease 0s);
+}
+
+.bg-white {
+    background: #ffffff;
+}
+
+.c-red {
+    color: $red;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+.text-clip {
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+// Padding
+.padding-all-15 {
+    padding: 15px;
+}
+
+.padding-all-20 {
+    padding: 20px;
+}
+
+.padding-all-25 {
+    padding: 25px;
+}
+
+.padding-all-30 {
+    padding: 30px;
+}
+
+// Margin
+.m-b-15 {
+    margin-bottom: 15px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-b-25 {
+    margin-bottom: 25px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.space-padding-tb-45 {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.description {
+    .faqtitle_answer {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    ul, ol {
+        display: block;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        -webkit-padding-start: 20px;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+}
+
+// Table Style
+.data-table-list {
+    width: 100%;
+    height: 100%;
+
+    .rows {
+        width: 100%;
+        display: table;
+
+        .col {
+            line-height: 1.5;
+            display: table-cell;
+            vertical-align: top;
+            word-break: break-all;
+            text-align: left;
+            padding: 10px;
+
+            &.text-right {
+                text-align: right;
+            }
+
+            &.text-center {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.buttons-set {
+    display: block;
+    margin-top: 35px;
+}
+
+.product-quantity {
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 1px solid $input-border;
+    position: relative;
+    @include clearfix;
+
+    .btn {
+        color: $gray-base;
+        border: none;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        background: inherit;
+        position: absolute;
+        top: 0px;
+        z-index: 1;
+
+        span[class^="icon-"] {
+            display: block;
+            margin-top: 4px;
+            line-height: 40px;
+        }
+
+        &.qtyminus {
+            padding-left: 15px;
+            padding-right: 5px;
+            left: 0px;
+        }
+
+        &.qtyplus {
+            padding-left: 5px;
+            padding-right: 15px;
+            right: 0px;
+        }
+
+        &:hover {
+            color: $orange;
+            border-color: inherit;
+            background-color: transparent;
+        }
+    }
+
+    .qty {
+        max-width: 50px;
+        display: block;
+
+        .form-control {
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: none;
+        }
+    }
+}
+
+.box-price {
+    display: block;
+    margin-bottom: 15px;
+    @include clearfix;
+
+    .old-price,
+    .new-price {
+        display: inline-block;
+    }
+
+    .price {
+        font-size: 24px;
+        font-family: $font-family-serif;
+        font-weight: 700;
+        line-height: 1;
+        display: block;
+
+        small {
+            color: rgba($gray-base, 0.7);
+        }
+    }
+
+    .old-price {
+        .price {
+            color: rgba($gray-base, 0.75);
+            font-size: 16px;
+            line-height: 28px;
+            text-decoration: line-through;
+        }
+    }
+
+    .new-price {
+        .price {
+            color: $red;
+        }
+    }
+}
+
+.products-grid {
+    display: block;
+    margin-left: -15px;
+    margin-right: -15px;
+    @include clearfix;
+
+    > .item {
+        width: 25%;
+        padding: 0px 15px;
+        margin-bottom: 35px;
+        display: block;
+        float: left;
+    }
+}
+
+.products-style {
+    .product-item {
+        padding: 20px;
+        display: block;
+        border: 1px solid rgba($input-border, 0.35);
+        background-color: $white;
+        @include transition(all 0.3s ease 0s);
+        position: relative;
+
+        .product-name {
+            font-size: 16px;
+            font-style: normal;
+            margin-bottom: 15px;
+
+            a {
+                @include text-ellipsis(1);
+                display: block;
+            }
+        }
+
+        .box-price {
+            display: block;
+            margin-bottom: 0px;
+
+            .price {
+                font-size: 20px;
+            }
+        }
+
+        .img-thumbnail {
+            width: 100%;
+            height: 220px;
+            display: block;
+            margin-bottom: 20px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
+
+            &:after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                @include transition(all 0.3s ease-in-out);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+        }
+
+        .btn {
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+            font-weight: normal;
+            line-height: 60px;
+            padding: 0px;
+            text-align: center;
+            @include opacity(0);
+            visibility: hidden;
+            color: $orange;
+            background-color: $white;
+            border-color: transparent;
+            @include border-radius(50%);
+            margin-left: -30px;
+            position: absolute;
+            left: 50%;
+            top: 110px;
+            z-index: 2;
+
+            &:hover {
+                color: $white;
+                background-color: $orange;
+            }
+        }
+    }
+
+    .item:hover {
+        .product-item {
+            border-color: rgba($orange, 0.75);
+
+            .img-thumbnail:after {
+                background-color: rgba($gray-base, 0.35);
+            }
+
+            .btn {
+                @include opacity(1);
+                visibility: visible;
+            }
+        }
+    }
+}
+
+.toolbar {
+    margin-bottom: 45px;
+
+    &.bottom {
+        margin-top: 45px;
+    }
+
+    .result {
+        margin-top: 15px;
+    }
+}
+
+/* Page Loader ================================= */
+.page-loader-wrapper {
+    z-index: 99999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    overflow: hidden;
+    text-align: center;
+
+    p {
+        font-size: 13px;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #444;
+    }
+    .loader {
+        position: relative;
+        top: calc(50% - 30px);
+    }
+}
+
+@include bp('max-width', $screen-sm-max) {
+    .row.remove-m-mb {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+
+// 767
+@include bp('max-width', $screen-xs-max) {
+    .main {
+        padding-top: 60px;
+    }
+
+    .wrapper-content {
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+
+    .fix-scrollbar-pc {
+        max-height: calc(100vh - 80px);
+    }
+
+    body.mac-os .fix-scrollbar-pc {
+        max-height: calc(100vh - 140px);
+    }
+
+    .show-desktop {
+        display: none !important;
+    }
+    .show-mobile {
+        display: block !important;
+    }
+
+    .data-table-list .rows .col {
+        font-size: 12px;
+    }
+}
+
+// 768
+@include bp('min-width', $screen-sm-min) {
+    .show-desktop {
+        display: block !important;
+    }
+    .show-mobile {
+        display: none !important;
+    }
+}

@@ -1,0 +1,135 @@
+// Default Variables
+$slick-font-path: "../fonts/" !default;
+$slick-font-family: $icon-font-name-ico !default;
+$slick-loader-path: "../" !default;
+$slick-arrow-color: white !default;
+$slick-dot-color: #999999 !default;
+$slick-dot-color-active: $bg-green !default;
+$slick-prev-character: "\f104" !default;
+$slick-next-character: "\f105" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 6px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+/* Slider */
+.slick-list {
+    .slick-loading & {
+        background: #fff url("../images/ajax-loader.gif") no-repeat center center;
+    }
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+    display: table;
+    height: 40px;
+    width: 40px;
+    line-height: 0px;
+    font-size: 0px;
+    color: $white;
+    background: $orange;
+    @include opacity($slick-opacity-default);
+    @include border-radius(50%);
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    position: absolute;
+    top: 45%;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+        @include opacity($slick-opacity-on-hover);
+    }
+
+    &.slick-disabled {
+        opacity: $slick-opacity-not-active;
+    }
+
+    &:before {
+        font-size: 28px;
+        font-family: $slick-font-family;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.slick-prev {
+    left: -45px;
+
+    &:before {
+        content: $slick-prev-character;
+    }
+}
+
+.slick-next {
+    right: -45px;
+
+    &:before {
+        content: $slick-next-character;
+    }
+}
+
+/* Dots */
+.slick-dotted.slick-slider {
+    margin-bottom: 15px;
+}
+
+.slick-dots {
+    height: 10px;
+    margin: 0;
+    display: block;
+    text-align: center;
+    @include translateX(-50%);
+    position: absolute;
+    left: 50%;
+    bottom: -24px;
+    @include clearfix;
+
+    li {
+        display: block;
+        height: 8px;
+        width: 8px;
+        padding: 0;
+        margin: 0px 4px;
+        cursor: pointer;
+        position: relative;
+        float: left;
+
+        button {
+            border: 0;
+            background: $slick-dot-color;
+            @include border-radius(50%);
+            display: block;
+            height: 8px;
+            width: 8px;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            position: relative;
+            padding: 5px;
+            cursor: pointer;
+
+            &:hover {
+
+                &:before {
+                    opacity: $slick-opacity-on-hover;
+                }
+            }
+        }
+
+        &.slick-active button {
+            background: $slick-dot-color-active;
+        }
+    }
+}

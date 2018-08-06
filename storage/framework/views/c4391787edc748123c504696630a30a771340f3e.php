@@ -1,0 +1,1 @@
+<h2 class="title"><?php echo e(trans('adminbsb.list')); ?></h2>

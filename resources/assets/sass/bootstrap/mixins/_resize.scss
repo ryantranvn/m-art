@@ -1,0 +1,60 @@
+// Resize anything
+
+@mixin resizable($direction) {
+  resize: $direction; // Options: horizontal, vertical, both
+  overflow: auto; // Per CSS3 UI, `resize` only applies when `overflow` isn't `visible`
+}
+
+@mixin abs-pos($top: auto, $right: auto, $bottom: auto, $left: auto, $pos: absolute) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: $pos;
+}
+
+// =============================================
+// Mixin - Breakpoint
+// =============================================
+
+$mq-support: true !default;
+$mq-fixed-value: 1024px !default;
+
+@mixin bp($feature, $value) {
+  // Set global device param
+  $media: only screen;
+
+  // Media queries supported
+  @if $mq-support == true {
+
+    @media #{$media} and ($feature: $value) {
+      @content;
+    }
+
+    // Media queries not supported
+  } @else {
+
+    @if $feature == 'min-width' {
+      @if $value <= $mq-fixed-value {
+        @content;
+      }
+    } @else if $feature == 'max-width' {
+      @if $value >= $mq-fixed-value {
+        @content;
+      }
+    }
+
+  }
+}
+
+@mixin bpminmax($value-min, $value-max) {
+  // Set global device param
+  $media: only screen;
+
+  // Media queries supported
+  @if $mq-support == true {
+    @media #{$media} and (min-width:$value-min ) and (max-width: $value-max){
+      @content;
+    }
+  }
+}
